@@ -6,4 +6,5 @@ Qui si potranno trovare anche esercizi personali che ho affrontato in preparazio
 </p>
 
 # Stato della repository
+
 <p>La repository sarà pubblica.</p>
