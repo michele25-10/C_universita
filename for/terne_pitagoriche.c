@@ -7,7 +7,7 @@ int main()
     scanf("%d", &n);
 
     int m;
-    for (m = 1; m < n; m++)
+    for (m = 3; m < n; m++)
     {
         if (m % 2 == 1)
         {
