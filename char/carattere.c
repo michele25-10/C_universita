@@ -19,6 +19,10 @@ int main()
     {
         printf("\nIl carattere è un numero\n");
     }
+    else
+    {
+        printf("\nIl carattere è un simbolo\n");
+    }
 
     return 0;
 }
