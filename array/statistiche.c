@@ -35,17 +35,19 @@ int main(){
             if(array[j] == array[k]){
                 tmp++; 
             }
-
-            if(tmp > frequenza){
-                indiceFrequenza = j;
-            }
         }
+
+        if(tmp > frequenza){
+            indiceFrequenza = j;
+            frequenza = tmp; 
+        }
+
         tmp = 0; 
     }
 
     printf("\nNumero min: %d", array[indiceMin]); 
     printf("\nNumero max: %d", array[indiceMax]); 
     printf("\nMedia: %.2lf", (float) tot/i); 
-    printf("\nNumero più frequente: %d", array[indiceFrequenza]);
+    printf("\nNumero più frequente: %d\n", array[indiceFrequenza]);
     return 0;
 }
