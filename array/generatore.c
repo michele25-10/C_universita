@@ -7,7 +7,7 @@
 int main(){
     srand(time(NULL)); 
     for(int i = 0; i<INDICE; i++){
-        printf("%d\n", rand() % 100);
+        printf("%d\n", rand() % 31);
     }
     printf("-1"); 
 
