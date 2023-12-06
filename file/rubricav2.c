@@ -23,16 +23,10 @@ void inserisciNuovoContatto(Contatto r[], int numero){
 
 void riordina(Contatto* r, int numero){
     Contatto tmp; 
-    int lunghezza;
-    for(int i = 0; i < numero; i++){
-        for(int k = i; k < numero; k++){
-            if(strlen(r[i].cognome) < strlen(r[k].cognome)){
-                lunghezza = strlen(r[i].cognome);
-            }else{
-                lunghezza = strlen(r[k].cognome);
-            }
-            for(int l = 0; l < lunghezza; l++){
-                if(r[k].cognome[l] > r[i].cognome[l]){
+    for(int i = 0; i < numero - 1; i++){
+        for(int k = i + 1; k < numero; k++){
+            for(int l = 0; l < strlen(r[i].cognome) && l < strlen(r[k].cognome); l++){
+                if(r[k].cognome[l] < r[i].cognome[l]){
                     strcpy(tmp.nome, r[i].nome);
                     strcpy(tmp.cognome, r[i].cognome);
                     strcpy(tmp.tel, r[i].tel);
@@ -42,6 +36,11 @@ void riordina(Contatto* r, int numero){
                     strcpy(r[k].nome, tmp.nome);
                     strcpy(r[k].cognome, tmp.cognome);
                     strcpy(r[k].tel, tmp.tel);
+                    break; 
+                } else if(r[k].cognome[l] == r[i].cognome[l]){
+                    continue;
+                }else{
+                    break; 
                 }
             }
         }
