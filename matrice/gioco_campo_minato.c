@@ -123,7 +123,7 @@ int main(){
     matrice campoMinato; 
     int celleVuote = inizializza(campoMinato);
     stampa(campoMinato);
-    stampaCampoMinato(campoMinato);
+
     char cella[2];
     while(1){
         printf("Inserisci riga e colonna es: (b5)\n");
