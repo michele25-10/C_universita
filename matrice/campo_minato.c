@@ -1,40 +1,49 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 #define NRIGHE 4
 #define NCOLONNE 6
-#define PROBMINA 0.2
+#define PROBMINA 0.3
 
-typedef char Campo[NRIGHE][NCOLONNE];
+typedef char righe[NRIGHE];
+typedef righe matrice[NCOLONNE];
 
-double rnd(){
-    return 0.0 + ((double)rand() /RAND_MAX) * (1.0-0.0); 
-}
+unsigned short int mina(){
+    srand(time(NULL));
+    if((0.0 + ((double)rand() /RAND_MAX) * (1.0-0.0)) > PROBMINA){
+        return 1;
+    }else{
+        return 0;
+    }
+} 
 
-void inizializza(Campo c){
-    for(int i = 0; i < NRIGHE; i++){
+void inizializza(matrice campoMinato){
+    for(int i = 0; i<NRIGHE; i++){
         for(int j = 0; j < NCOLONNE; j++){
-            if(rnd() <= PROBMINA){
-                c[i][j] = '*';
+            if(mina()){
+                campoMinato[i][j] = '*';
             }else{
-                c[i][j] = ' ';
+                campoMinato[i][j] = ' ';
             }
         }
     }
 }
 
-void stampa(Campo c){
-    for(int i = 0; i < NRIGHE; i++){
+void stampa(matrice campoMinato){
+    for(int i = 0; i<NRIGHE; i++){
         for(int j = 0; j < NCOLONNE; j++){
-            printf("%c\t", c[i][j]);
+            printf("%c", campoMinato[i][j]); 
         }
         printf("\n");
     }
 }
 
+
 int main(){
-    Campo c;
-    inizializza(c);
-    stampa(c);
+    matrice campoMinato; 
+    inizializza(campoMinato);
+    stampa(campoMinato);
+    
     return 0;
 }
