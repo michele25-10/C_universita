@@ -48,21 +48,34 @@ void Stampa(Lista l){
 void eliminazioneElementoLista(Lista l, int delNumber){
     Nodo* pre = l; 
     Nodo* dopo = pre->next; 
+    Nodo* del = NULL;
     
     if(pre->dato == delNumber){
-        l->next = dopo; 
-        free(pre);
+        l = dopo; 
+        del = pre;
+        free(del);
         pre = l;  
-        dopo = l->next; 
+        dopo = pre->next; 
     }
-
+    int eliminato = 0;
     while(dopo){
         if(dopo->dato == delNumber){
+            eliminato = 1; 
             pre->next = dopo->next; 
-            free(dopo); 
+            del = dopo; 
+            free(del); 
         }
-        pre = pre->next; 
-        dopo = dopo->next; 
+        
+        if(eliminato == 0){
+            pre = pre->next; 
+        }
+
+        eliminato = 0; 
+        if(pre || pre->next!=NULL){
+            dopo = pre->next;
+        } else {
+            dopo = NULL; 
+        } 
     }
 }
 
