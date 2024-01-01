@@ -1,17 +1,4 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-
-#define DIM 30
-
-typedef struct nodo{
-    char parola[DIM]; 
-    struct nodo* next; 
-}Nodo; 
-
-typedef Nodo* Lista; 
-
-typedef char arrayStringhe[5][DIM]; 
+#include "listaParole.h"
 
 void toLower(char *str){
     for(int i = 0; i < strlen(str); i++){
@@ -108,34 +95,4 @@ void Stampa(Lista stringhe, Lista stringheNoDoppioni){
         }
         stringheNoDoppioni = stringheNoDoppioni->next; 
     }
-}
-
-int main(int argc, char *argv[]){
-    if(argc < 2){
-        printf("\nNon sono stati inseriti argomenti a sufficienza!\n"); 
-        exit(-1); 
-    }
-    
-    Lista ParoleDaEvitare = NULL; 
-    
-    if(argc > 2){
-        int m = 2; 
-        while(m < argc){
-            insTesta(&ParoleDaEvitare, argv[m]); 
-            m++; 
-        }
-    }
-
-    Lista stringheFile = NULL;  
-    Lista stringheNoDoppioni = NULL; 
-    
-    salvataggioContenutoFile(argv[1], &ParoleDaEvitare, &stringheFile); 
-
-    //Ordino le due liste
-    listaStringheAscendente(&stringheFile, &stringheNoDoppioni); 
-    listaStringheAscendente(&stringheNoDoppioni, &stringheNoDoppioni); 
-
-    Stampa(stringheFile, stringheNoDoppioni); 
-
-    return 0; 
 }
