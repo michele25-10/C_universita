@@ -1,6 +1,0 @@
-1 x 0.68 (Acqua) = 0.68
-2 x 0.24 (Pane) = 0.48
-3 x 1.68 (Primo) = 5.04
-1 x 2.04 (Secondo) = 2.04
-1 x 0.82 (Frutta) = 0.82
-Totale: 9.06
