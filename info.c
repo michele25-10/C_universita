@@ -15,6 +15,9 @@ typedef struct nodo{
 
 typedef Nodo* Lista; 
 
+// enumeratore di una variabile booleana
+typedef enum { false, true } Boolean;
+
 void insTesta(Lista *i, Record r){
     Nodo* aux = (Nodo*)malloc(sizeof(Nodo));
     aux->dato = r.dato; 
@@ -160,3 +163,9 @@ main.o: main.c listaUtenti.h
 listaUtenti.o: listaUtenti.c listaUtenti.h
 	gcc -g -c listaUtenti.c
 */
+
+int rnd_int (int min , int max ) {
+	//ricordati di importare libreria <time.h>
+	srand(time(NULL)); 
+	return min + rand () % ( max - min + 1) ;
+}
