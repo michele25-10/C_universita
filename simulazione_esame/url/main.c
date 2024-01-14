@@ -1,18 +1,19 @@
 #include "listaUrl.h"
 
-//controllo l'estensione del file
-unsigned short int controlloEstensioneFile(char *nomeFile, char *estensione){
+    //controllo l'estensione del file
+Boolean controlloEstensioneFile(char *nomeFile, char *estensione){
     int lunghezzaEstensione = strlen(estensione); 
     int lunghezzaNomeFile = strlen(nomeFile); 
 
     int k = 0; 
     for(int i = lunghezzaNomeFile - lunghezzaEstensione; i < lunghezzaNomeFile; i++){
         if(nomeFile[i] != estensione[k]){
-            return 1; 
+            return false; 
         }
         k++; 
     }
-    return 0; 
+    
+    return true; 
 }
 
 int main(int argc, char *argv[]){
@@ -22,7 +23,7 @@ int main(int argc, char *argv[]){
         exit(-1); 
     }
     //validazione input
-    if(controlloEstensioneFile(argv[1], ".dat") == 1){
+    if(controlloEstensioneFile(argv[1], ".dat") == false){
         printf("Il file inserito non è dell'estensione adatta\n"); 
         exit(-1); 
     }

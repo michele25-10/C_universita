@@ -20,6 +20,8 @@ typedef struct info{
 
 typedef Info* Lista; 
 
+typedef enum { false, true } Boolean;
+
 Info* ricercaURL(Lista *c, char *url); 
 
 void insTesta(Lista *c, Visite r); 
